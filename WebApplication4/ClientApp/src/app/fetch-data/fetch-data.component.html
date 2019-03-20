@@ -1,0 +1,28 @@
+<h1>Transaction History</h1>
+<hr/>
+<table class='table' >
+  <thead>
+  <tr>
+    <th>Transaction ID</th>
+    <th>Account Number</th>
+    <th>Date</th>
+    <th>Credit</th>
+    <th>Debit</th>
+    <th>Balance</th>
+    <th>Status</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let transHistory of transactionHistory">
+    <td>{{ transHistory.TransactionID }}</td>
+    <td>{{ transHistory.AccountNumber }}</td>
+    <td>{{ transHistory.TransactionDate }}</td>
+    <td>{{ transHistory.Credit }}</td>
+    <td>{{ transHistory.Debit }}</td>
+    <td>{{ transHistory.Balance }}</td>
+    <td>{{ transHistory.TransactionStatus }}</td>
+    <td>{{ transHistory.TransactionDescription }}</td>
+  </tr>
+  </tbody>
+</table>

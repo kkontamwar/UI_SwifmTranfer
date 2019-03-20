@@ -1,0 +1,46 @@
+<h1>Transact</h1>
+<hr />
+
+<form [formGroup]="transactForm" (ngSubmit)="onSubmit();transactForm.reset()">
+  <div class="row" *ngIf="showMsg">
+    <div class="col-xs-12">
+      <p class="alert alert-success">
+        <strong>Transaction Success!</strong>
+      </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fromAccNumber">From Account Number</label>
+    <input type="text" formControlName="fromAccNumber" class="form-control" [(ngModel)]="fromAccNumber" required />
+  </div>
+  <!--<div [hidden]="name.valid || name.pristine"
+           class="alert alert-danger">
+    Account from which you need to transfer money is required.
+  </div>-->
+  <div class="form-group">
+    <label for="toAccNumber">To Account Number</label>
+    <select class="form-control" id="toAccNumber" formControlName="toAccNumber">
+      <option *ngFor="let payeeAccount of payeeAccounts" [value]="payeeAccount">{{payeeAccount}}</option>
+    </select>
+  </div>
+  <!--<div [hidden]="name.valid || name.pristine"
+           class="alert alert-danger">
+    Account to which you need to transfer money is required.
+  </div>-->
+  <div class="form-group">
+    <label for="transAmount">Transfer Amount</label>
+    <input type="text" formControlName="transAmount" class="form-control" />
+  </div>
+  <!--<div [hidden]="name.valid || name.pristine"
+           class="alert alert-danger">
+    Please enter amount that need to transfer.
+  </div>-->
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text" formControlName="description" class="form-control" />
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary" [disabled]="!transactForm.valid">Tranfer</button>
+  </div>
+</form>
+
