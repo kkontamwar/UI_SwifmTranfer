@@ -3,7 +3,7 @@
 
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div class="row" *ngIf="accNumber">
-    <div class="col-xs-12">
+    <div class="col-xs-12" id="Message">
       <p class="alert alert-success">
         <strong> Account Number : <u> {{accNumber}} </u> Created Successfully </strong>
       </p>
