@@ -8,10 +8,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FetchDataComponent {
   public transactionHistory: any;
-  baseUrl = "https://swiftmtransferapi.azurewebsites.net/api";
+  baseUrl = "http://52.13.109.60:8080/api";
 
   constructor(private http: HttpClient) {
-    http.get<any>(this.baseUrl + "/User/GetAllTransactions").subscribe(
+    http.get<any>(this.baseUrl + "/Transactions").subscribe(
       result => {
         console.log(result);
         this.transactionHistory = result;
