@@ -10,19 +10,19 @@ import { Router } from '@angular/router';
 })
 export class CounterComponent implements OnInit {
   public currentCount = 0;
-  baseUrl = "http://52.13.109.60:8080/api";
+  baseUrl = "https://swiftmtransferapi.azurewebsites.net/api";
   showMsg: boolean = false;
   public payeeAccounts: any;
   transactForm: FormGroup;
   fromAccNumber: string;
 
   constructor(private http: HttpClient, private formBuilder: FormBuilder, private router: Router) {
-    http.get<any>(this.baseUrl + "/User").subscribe(
+    http.get<any>(this.baseUrl + "/User/GetSelf").subscribe(
       result => {
         console.log("Fetching self Account Number."); this.fromAccNumber = result;
         console.log("Fetching payee Account Numbers.");
 
-        http.get<any>(this.baseUrl + "/Accounts").subscribe(
+        http.get<any>(this.baseUrl + "/User/GetAllPayeeAccounts").subscribe(
           data => { this.payeeAccounts = data; },
           error => console.error(error));
       },
